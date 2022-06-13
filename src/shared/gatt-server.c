@@ -29,8 +29,8 @@
 #include <errno.h>
 
 #include "src/shared/att.h"
-#include "lib/bluetooth.h"
-#include "lib/uuid.h"
+#include "src/shared/bluetooth-definitions.h"
+#include "src/shared/uuid.h"
 #include "src/shared/queue.h"
 #include "src/shared/gatt-db.h"
 #include "src/shared/gatt-server.h"
