@@ -33,9 +33,9 @@
 #include "src/shared/queue.h"
 #include "src/shared/util.h"
 #include "src/shared/timeout.h"
-#include "lib/bluetooth.h"
-#include "lib/l2cap.h"
-#include "lib/uuid.h"
+#include "src/shared/bluetooth-definitions.h"
+#include "src/shared/l2cap-definitions.h"
+#include "src/shared/uuid.h"
 #include "src/shared/att.h"
 #include "src/shared/crypto.h"
 
