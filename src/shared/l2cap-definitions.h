@@ -5,18 +5,18 @@
  *  Copyright (C) 2022  Nikolaj Due Oesterbye <nikolaj@due-oesterbye.dk>
  *
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2.1 of the License, or (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
+ *  This library is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Lesser General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
+ *  You should have received a copy of the GNU Lesser General Public
+ *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  */
@@ -26,23 +26,23 @@
 
 /* L2CAP socket address */
 struct sockaddr_l2 {
-    sa_family_t	l2_family;
-    unsigned short	l2_psm;
-    bdaddr_t	l2_bdaddr;
-    unsigned short	l2_cid;
-    uint8_t		l2_bdaddr_type;
+	sa_family_t	l2_family;
+	unsigned short	l2_psm;
+	bdaddr_t	l2_bdaddr;
+	unsigned short	l2_cid;
+	uint8_t		l2_bdaddr_type;
 };
 
 /* L2CAP socket options */
 #define L2CAP_OPTIONS	0x01
 struct l2cap_options {
-    uint16_t	omtu;
-    uint16_t	imtu;
-    uint16_t	flush_to;
-    uint8_t		mode;
-    uint8_t		fcs;
-    uint8_t		max_tx;
-    uint16_t	txwin_size;
+	uint16_t	omtu;
+	uint16_t	imtu;
+	uint16_t	flush_to;
+	uint8_t		mode;
+	uint8_t		fcs;
+	uint8_t		max_tx;
+	uint16_t	txwin_size;
 };
 
 
@@ -55,29 +55,29 @@ struct l2cap_options {
 
 /* L2CAP socket address */
 struct sockaddr_l2 {
-    sa_family_t	l2_family;
-    unsigned short	l2_psm;
-    bdaddr_t	l2_bdaddr;
-    unsigned short	l2_cid;
-    uint8_t		l2_bdaddr_type;
+	sa_family_t	l2_family;
+	unsigned short	l2_psm;
+	bdaddr_t	l2_bdaddr;
+	unsigned short	l2_cid;
+	uint8_t		l2_bdaddr_type;
 };
 
 /* L2CAP socket options */
 #define L2CAP_OPTIONS	0x01
 struct l2cap_options {
-    uint16_t	omtu;
-    uint16_t	imtu;
-    uint16_t	flush_to;
-    uint8_t		mode;
-    uint8_t		fcs;
-    uint8_t		max_tx;
-    uint16_t	txwin_size;
+	uint16_t	omtu;
+	uint16_t	imtu;
+	uint16_t	flush_to;
+	uint8_t		mode;
+	uint8_t		fcs;
+	uint8_t		max_tx;
+	uint16_t	txwin_size;
 };
 
 #define L2CAP_CONNINFO	0x02
 struct l2cap_conninfo {
-    uint16_t	hci_handle;
-    uint8_t		dev_class[3];
+	uint16_t	hci_handle;
+	uint8_t		dev_class[3];
 };
 
 #define L2CAP_LM	0x03
@@ -126,34 +126,34 @@ struct l2cap_conninfo {
 
 /* L2CAP structures */
 typedef struct {
-    uint16_t	len;
-    uint16_t	cid;
+	uint16_t	len;
+	uint16_t	cid;
 } __attribute__ ((packed)) l2cap_hdr;
 #define L2CAP_HDR_SIZE 4
 
 typedef struct {
-    uint8_t		code;
-    uint8_t		ident;
-    uint16_t	len;
+	uint8_t		code;
+	uint8_t		ident;
+	uint16_t	len;
 } __attribute__ ((packed)) l2cap_cmd_hdr;
 #define L2CAP_CMD_HDR_SIZE 4
 
 typedef struct {
-    uint16_t	reason;
+	uint16_t	reason;
 } __attribute__ ((packed)) l2cap_cmd_rej;
 #define L2CAP_CMD_REJ_SIZE 2
 
 typedef struct {
-    uint16_t	psm;
-    uint16_t	scid;
+	uint16_t	psm;
+	uint16_t	scid;
 } __attribute__ ((packed)) l2cap_conn_req;
 #define L2CAP_CONN_REQ_SIZE 4
 
 typedef struct {
-    uint16_t	dcid;
-    uint16_t	scid;
-    uint16_t	result;
-    uint16_t	status;
+	uint16_t	dcid;
+	uint16_t	scid;
+	uint16_t	result;
+	uint16_t	status;
 } __attribute__ ((packed)) l2cap_conn_rsp;
 #define L2CAP_CONN_RSP_SIZE 8
 
@@ -170,17 +170,17 @@ typedef struct {
 #define L2CAP_CS_AUTHOR_PEND	0x0002
 
 typedef struct {
-    uint16_t	dcid;
-    uint16_t	flags;
-    uint8_t		data[0];
+	uint16_t	dcid;
+	uint16_t	flags;
+	uint8_t		data[0];
 } __attribute__ ((packed)) l2cap_conf_req;
 #define L2CAP_CONF_REQ_SIZE 4
 
 typedef struct {
-    uint16_t	scid;
-    uint16_t	flags;
-    uint16_t	result;
-    uint8_t		data[0];
+	uint16_t	scid;
+	uint16_t	flags;
+	uint16_t	result;
+	uint8_t		data[0];
 } __attribute__ ((packed)) l2cap_conf_rsp;
 #define L2CAP_CONF_RSP_SIZE 6
 
@@ -192,9 +192,9 @@ typedef struct {
 #define L2CAP_CONF_EFS_REJECT	0x0005
 
 typedef struct {
-    uint8_t		type;
-    uint8_t		len;
-    uint8_t		val[0];
+	uint8_t		type;
+	uint8_t		len;
+	uint8_t		val[0];
 } __attribute__ ((packed)) l2cap_conf_opt;
 #define L2CAP_CONF_OPT_SIZE 2
 
@@ -219,26 +219,26 @@ typedef struct {
 #define L2CAP_SERVTYPE_GUARANTEED	0x02
 
 typedef struct {
-    uint16_t	dcid;
-    uint16_t	scid;
+	uint16_t	dcid;
+	uint16_t	scid;
 } __attribute__ ((packed)) l2cap_disconn_req;
 #define L2CAP_DISCONN_REQ_SIZE 4
 
 typedef struct {
-    uint16_t	dcid;
-    uint16_t	scid;
+	uint16_t	dcid;
+	uint16_t	scid;
 } __attribute__ ((packed)) l2cap_disconn_rsp;
 #define L2CAP_DISCONN_RSP_SIZE 4
 
 typedef struct {
-    uint16_t	type;
+	uint16_t	type;
 } __attribute__ ((packed)) l2cap_info_req;
 #define L2CAP_INFO_REQ_SIZE 2
 
 typedef struct {
-    uint16_t	type;
-    uint16_t	result;
-    uint8_t		data[0];
+	uint16_t	type;
+	uint16_t	result;
+	uint8_t		data[0];
 } __attribute__ ((packed)) l2cap_info_rsp;
 #define L2CAP_INFO_RSP_SIZE 4
 
@@ -251,40 +251,40 @@ typedef struct {
 #define L2CAP_IR_NOTSUPP	0x0001
 
 typedef struct {
-    uint16_t	psm;
-    uint16_t	scid;
-    uint8_t		id;
+	uint16_t	psm;
+	uint16_t	scid;
+	uint8_t		id;
 } __attribute__ ((packed)) l2cap_create_req;
 #define L2CAP_CREATE_REQ_SIZE 5
 
 typedef struct {
-    uint16_t	dcid;
-    uint16_t	scid;
-    uint16_t	result;
-    uint16_t	status;
+	uint16_t	dcid;
+	uint16_t	scid;
+	uint16_t	result;
+	uint16_t	status;
 } __attribute__ ((packed)) l2cap_create_rsp;
 #define L2CAP_CREATE_RSP_SIZE 8
 
 typedef struct {
-    uint16_t	icid;
-    uint8_t		id;
+	uint16_t	icid;
+	uint8_t		id;
 } __attribute__ ((packed)) l2cap_move_req;
 #define L2CAP_MOVE_REQ_SIZE 3
 
 typedef struct {
-    uint16_t	icid;
-    uint16_t	result;
+	uint16_t	icid;
+	uint16_t	result;
 } __attribute__ ((packed)) l2cap_move_rsp;
 #define L2CAP_MOVE_RSP_SIZE 4
 
 typedef struct {
-    uint16_t	icid;
-    uint16_t	result;
+	uint16_t	icid;
+	uint16_t	result;
 } __attribute__ ((packed)) l2cap_move_cfm;
 #define L2CAP_MOVE_CFM_SIZE 4
 
 typedef struct {
-    uint16_t	icid;
+	uint16_t	icid;
 } __attribute__ ((packed)) l2cap_move_cfm_rsp;
 #define L2CAP_MOVE_CFM_RSP_SIZE 2
 

@@ -5,18 +5,18 @@
  *  Copyright (C) 2022  Nikolaj Due Oesterbye <nikolaj@due-oesterbye.dk>
  *
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Lesser General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2.1 of the License, or (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
+ *  This library is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Lesser General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
+ *  You should have received a copy of the GNU Lesser General Public
+ *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  */
@@ -43,8 +43,8 @@
 
 #define BT_SECURITY	4
 struct bt_security {
-    uint8_t level;
-    uint8_t key_size;
+	uint8_t level;
+	uint8_t key_size;
 };
 #define BT_SECURITY_SDP		0
 #define BT_SECURITY_LOW		1
@@ -54,10 +54,20 @@ struct bt_security {
 
 /* BD Address */
 typedef struct {
-    uint8_t b[6];
+	uint8_t b[6];
 } __attribute__((packed)) bdaddr_t;
 
 /* BD Address type */
 #define BDADDR_BREDR           0x00
 #define BDADDR_LE_PUBLIC       0x01
 #define BDADDR_LE_RANDOM       0x02
+
+static inline void bswap_128(const void *src, void *dst)
+{
+	const uint8_t *s = (const uint8_t *) src;
+	uint8_t *d = (uint8_t *) dst;
+	int i;
+
+	for (i = 0; i < 16; i++)
+		d[15 - i] = s[i];
+}
